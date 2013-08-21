@@ -1,3 +1,4 @@
+/*simple reset*/
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +7,7 @@ html, body {
     height: 100%;
     width: 100%;
 }
+/*generic not used for charts*/
 body {
     background: #ddd;
     overflow-x: hidden;
@@ -18,6 +20,7 @@ body a, body a:hover, body a:visited, body a:active {
     text-decoration: none;
 }
 
+/*charts container - change font-size to scale charts */
 #container {font-size:1em; overflow:hidden; position:relative; margin:1em auto; width:10em; z-index:0}
 #container > div {position:relative; width:10em; height:10em; overflow:hidden;float:left; margin:0em -10em 1em 0em;}
 #container > div > div {position:absolute; bottom:0; left:0; width: 0; height: 0; border-left: 5em solid transparent; border-right: 5em solid transparent;}
