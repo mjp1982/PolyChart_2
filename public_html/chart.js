@@ -1,12 +1,12 @@
 function ColorLuminance(hex, lum) {
-	// validate hex string
+	// validate hex
 	hex = String(hex).replace(/[^0-9a-f]/gi, '');
 	if (hex.length < 6) {
 		hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
 	}
 	lum = lum || 0;
 	
-	// convert to decimal and change luminosity
+	// convert to decimal rgb
 	var rgb = "#", c, i;
 	for (i = 0; i < 3; i++) {
 		c = parseInt(hex.substr(i*2,2), 16);
@@ -16,15 +16,15 @@ function ColorLuminance(hex, lum) {
 	return rgb;
 }
 
-var color = "#017160", lum = 0.10;
+var color = "#017160", lum = 0.10; //change start color here
 
 var chart = function() {
 $("#container").each(function() {
-        tot = $("#container > div").length;
+        tot = $("#container > div").length; //count charts
         for(var i = 1; i <= tot; i++) {
-          name = $("#chart_" + i).attr("title");
-          value = $("#chart_" + i).attr("class"); 
-          var nc = ColorLuminance(color, name*lum);
+          name = $("#chart_" + i).attr("title"); //get the value num
+          value = $("#chart_" + i).attr("class"); //get the description
+          var nc = ColorLuminance(color, name*lum); //increase lum as value raises
           $("#chart_" + i + " .l1").css({
               "z-index": Math.round(10/name),
               "border-bottom": name + "em solid" + nc
@@ -36,9 +36,9 @@ $("#container").each(function() {
 
 var columns = function() {
        for(var i = 0; i <= 10; i++) {
-           $("#container .columns").append("<li></li>");
+           $("#container .columns").append("<li></li>"); //create lines as background
        };
 };
 
-$(document).ready(columns);
-$(document).ready(chart);
+$(document).ready(columns); 
+$(document).ready(chart); //this can be launched onclick on index too
